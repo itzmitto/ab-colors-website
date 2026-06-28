@@ -8,3 +8,22 @@ p{
 .dark {
   color-scheme: dark;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1.25rem;
+        font-size: 0.95rem;
+    }
+}
