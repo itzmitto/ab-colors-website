@@ -1,91 +1,95 @@
 .navbar {
-  background-color: white;
-  border-bottom: 1px solid #e5e5e5;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  padding: 0 1.5rem;
+    background-color: white;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 0 1.5rem;
+
 }
 
 .navbar-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 76px;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
 }
 
 .logo {
-  font-weight: 700;
-  font-size: 1.35rem;
+    font-weight: 700;
+    font-size: 1.35rem;
 }
 
 .logo-text {
-  background: linear-gradient(90deg, #3b82f6, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    color: black;
 }
 
 .nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
 }
 
 .nav-link {
-  color: #374151;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.2s;
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
 }
 
 .nav-link:hover {
-  color: #3b82f6;
+    color: #3b82f6;
 }
 
 .nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .theme-toggle {
-  background: none;
-  border: none;
-  color: #374151;
-  font-weight: 500;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0.5rem 0.75rem;
-  border-radius: 9999px;
-  transition: background-color 0.2s;
+    background: none;
+    border: none;
+    color: #374151;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s;
 }
 
 .theme-toggle:hover {
-  background-color: #f3f4f6;
+    background-color: #f3f4f6;
 }
 
 .sign-in-btn {
-  background-color: #111827;
-  color: white;
-  border: none;
-  padding: 0.65rem 1.25rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
+    background-color: #111827;
+    color: white;
+    border: none;
+    padding: 0.65rem 1.25rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .sign-in-btn:hover {
-  background-color: #1f2937;
+    background-color: #1f2937;
+}
+
+.dark .navbar {
+    background-color: #0e0e11;
+    border-bottom-color: #0e0e11;
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    gap: 1.25rem;
-    font-size: 0.95rem;
-  }
+    .nav-links {
+        gap: 1.25rem;
+        font-size: 0.95rem;
+    }
 }

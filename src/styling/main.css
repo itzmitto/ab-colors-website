@@ -4,3 +4,7 @@ h1{
 p{
     color:green;
 }
+
+.dark {
+  color-scheme: dark;
+}
