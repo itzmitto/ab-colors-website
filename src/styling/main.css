@@ -168,3 +168,31 @@
         font-size: 0.95rem;
     }
 }
+
+
+@media (max-width: 900px) {
+
+    .tw-shade-labels,
+    .tw-color-row {
+        grid-template-columns: 70px repeat(11, 1fr);
+        gap: 6px;
+    }
+
+    .tw-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .tw-colors-page {
+        padding: 40px 16px 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tw-shade-labels span {
+        font-size: 0.65rem;
+    }
+
+    .tw-row-label {
+        font-size: 0.78rem;
+    }
+}
