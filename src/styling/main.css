@@ -1,13 +1,154 @@
-h1{
-    color:red;
-}
-p{
-    color:green;
+.dark {
+    color-scheme: dark;
 }
 
-.dark {
-  color-scheme: dark;
+:root {
+    --color-text: #0d0a2e;
+    --color-bg: #f4f4f6;
+    --color-primary: #4040f5;
+    --color-secondary: #ee0bd6;
+    --color-accent: #c4c5ee;
 }
+
+#hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 64px 5%;
+}
+
+.hero-left {
+    flex: 1 1 360px;
+    max-width: 480px;
+}
+
+.hero-left h1 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    margin: 0 0 16px;
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-secondary);
+}
+
+.hero-left p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 0 24px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: var(--color-secondary);
+    color: #fff;
+}
+
+#toolbar {
+    display: flex;
+    justify-content: center;
+    padding: 24px 5% 64px;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e4e4e8;
+    border-radius: 14px;
+    padding: 8px;
+    flex-wrap: wrap;
+}
+
+.tool {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tool-text {
+    background: var(--color-text);
+    color: #fff;
+}
+
+.tool-background {
+    background: transparent;
+    color: var(--color-text);
+}
+
+.tool-primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.tool-secondary {
+    background: var(--color-secondary);
+    color: #fff;
+}
+
+.tool-accent {
+    background: var(--color-accent);
+    color: var(--color-text);
+}
+
+.tool-icon {
+    background: #fff;
+    border: 1px solid #e4e4e8;
+    color: var(--color-text);
+    padding: 10px 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

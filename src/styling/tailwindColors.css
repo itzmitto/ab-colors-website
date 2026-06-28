@@ -1,0 +1,163 @@
+.tw-colors-page {
+    --tw-bg: #ffffff;
+    --tw-text: #0f172a;
+    --tw-muted: #64748b;
+    --tw-border: #e5e7eb;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--tw-bg);
+    color: var(--tw-text);
+    padding: 60px 40px 120px;
+}
+
+.tw-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 50px;
+}
+
+.tw-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+}
+
+.tw-header p {
+    color: var(--tw-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 6px 0;
+}
+
+.tw-grid-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tw-shade-labels,
+.tw-color-row {
+    display: grid;
+    grid-template-columns: 110px repeat(11, 1fr);
+    gap: 12px;
+}
+
+.tw-shade-labels {
+    margin-bottom: 14px;
+}
+
+.tw-shade-labels span {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--tw-muted);
+    font-weight: 600;
+}
+
+.tw-color-row {
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.tw-row-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--tw-text);
+}
+
+.tw-swatch {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.12s ease;
+    border: none;
+    padding: 0;
+}
+
+.tw-swatch:hover {
+    transform: scale(1.06);
+    z-index: 5;
+}
+
+.tw-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #1e293b;
+    color: #f8fafc;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    letter-spacing: 0.02em;
+}
+
+.tw-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #1e293b;
+}
+
+.tw-swatch:hover .tw-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.tw-copy-toast {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-12px);
+    background: #1e293b;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+    letter-spacing: 0.01em;
+}
+
+.tw-copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 900px) {
+
+    .tw-shade-labels,
+    .tw-color-row {
+        grid-template-columns: 70px repeat(11, 1fr);
+        gap: 6px;
+    }
+
+    .tw-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .tw-colors-page {
+        padding: 40px 16px 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tw-shade-labels span {
+        font-size: 0.65rem;
+    }
+
+    .tw-row-label {
+        font-size: 0.78rem;
+    }
+}

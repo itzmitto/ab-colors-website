@@ -1,16 +1,12 @@
-import Navbar from './components/Navbar'; 
+import Navbar from './components/Navbar';
+import MainSection from './components/MainSection';
 import './styling/main.css';
 
 function App() {
   return (
     <>
       <Navbar />
-      <main>
-        <section id="center">
-          <h1>Welkom</h1>
-          <p>Je React app is klaar 🚀</p>
-        </section>
-      </main>
+      <MainSection />
     </>
   );
 }

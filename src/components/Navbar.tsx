@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -29,14 +30,14 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-container">
-                <div className="logo">
+                <Link to="/" className="logo">
                     <span className="logo-text">AB Colors</span>
-                </div>
+                </Link>
                 <div className="nav-links">
-                    <a href="#" className="nav-link">generate</a>
-                    <a href="#" className="nav-link">Tailwind Colors</a>
-                    <a href="#" className="nav-link">websites</a>
-                    <a href="#" className="nav-link">examples</a>
+                    <Link to="/" className="nav-link">generate</Link>
+                    <Link to="/tailwind-colors" className="nav-link">Tailwind Colors</Link>
+                    <Link to="/websites" className="nav-link">websites</Link>
+                    <Link to="/examples" className="nav-link">examples</Link>
                 </div>
                 <div className="nav-right">
                     <button
