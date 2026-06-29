@@ -1,4 +1,6 @@
 import Navbar from '../components/Navbar';
+import '../styling/Website.css';
+
 
 export default function Websites() {
     return (
