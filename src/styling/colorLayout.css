@@ -40,7 +40,7 @@
 }
 
 .color-layout .blok4 {
-    background: var(--color-secondary);
+    background: var(--color-text);
     width: 183px;
     height: 170px;
     right: 0;
@@ -64,7 +64,7 @@
 }
 
 .color-layout .blok7 {
-    background: var(--color-accent);
+    background: var(--color-secondary);
     width: 183px;
     height: 90px;
     right: 0;

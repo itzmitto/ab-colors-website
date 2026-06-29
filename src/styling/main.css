@@ -1,4 +1,16 @@
-.dark { 
+.dark {
+    color-scheme: dark;
+}
+
+:root {
+    --color-text: #0d0a2e;
+    --color-bg: #f6f4f4;
+    --color-primary: #4040f5;
+    --color-secondary: #ee0bd6;
+    --color-accent: #c4c5ee;
+}
+
+.dark {
     color-scheme: dark;
 }
 
@@ -49,9 +61,10 @@ main {
 
 .hero-left p {
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #555;
     margin: 0 0 4px;
+    max-width: 380px;
 }
 
 .hero-buttons {

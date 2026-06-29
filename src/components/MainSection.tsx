@@ -1,11 +1,14 @@
-function MainSection() { 
+function MainSection() {
     return (
         <main>
             <section id="hero">
                 <div className="hero-left">
                     <h1>
-                        Visualize Your <span className="text-primary">Colors</span> &{' '}
-                        <span className="text-secondary">Fonts</span> On a Real Site
+                        Visualize Your<br />
+                        <span className="text-primary">Colors</span> &{' '}
+                        <span className="text-secondary">Fonts</span>
+                        <br />
+                        On a Real Site
                     </h1>
                     <p>
                         Choosing colors or typography for your website? Use the Toolbar
@@ -16,7 +19,7 @@ function MainSection() {
                         <button className="btn btn-primary">Get Started</button>
                     </div>
                 </div>
-
+                
                 <div className="color-layout-wrapper">
                     <div className="color-layout">
                         <div className="block blok1"></div>
