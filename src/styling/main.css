@@ -1,4 +1,4 @@
-.dark { 
+.dark {
     color-scheme: dark;
 }
 
@@ -9,19 +9,21 @@
     --color-secondary: #ee0bd6;
     --color-accent: #c4c5ee;
 }
+
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
+    justify-content: space-between;
+    min-height: calc(100vh - 65px);
 }
+
 #hero {
     display: flex;
     flex-wrap: wrap;
     gap: 48px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    padding: 24px 5% 48px;
+    padding: 64px 5% 24px;
 }
 
 .hero-left {
@@ -30,9 +32,11 @@ main {
 }
 
 .hero-left h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
+    font-weight: 800;
     line-height: 1.15;
     margin: 0 0 16px;
+    color: var(--color-text);
 }
 
 .text-primary {
@@ -45,20 +49,22 @@ main {
 
 .hero-left p {
     font-size: 0.95rem;
+    font-weight: 600;
     color: #555;
-    margin: 0 0 24px;
+    margin: 0 0 4px;
 }
 
 .hero-buttons {
     display: flex;
     gap: 12px;
+    margin-top: 24px;
 }
 
 .btn {
     border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-weight: 600;
+    border-radius: 24px;
+    padding: 12px 22px;
+    font-weight: 700;
     font-size: 0.9rem;
     cursor: pointer;
 }
@@ -70,32 +76,31 @@ main {
 
 .btn-secondary {
     background: var(--color-secondary);
-    color: #fff;
+    color: #000;
 }
 
 #toolbar {
     display: flex;
     justify-content: center;
-    padding: 24px 5% 64px;
+    padding: 24px 5% 48px;
 }
 
 .toolbar {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #f0f0f0;
-    border: 1px solid #e4e4e8;
-    border-radius: 14px;
+    background: #eceef1;
+    border-radius: 16px;
     padding: 8px;
     flex-wrap: wrap;
 }
 
 .tool {
-    border: none;   
-    border-radius: 8px;
-    padding: 10px 16px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 22px;
+    font-size: 0.9rem;
+    font-weight: 700;
     cursor: pointer;
 }
 
@@ -105,7 +110,7 @@ main {
 }
 
 .tool-background {
-    background: #f5f5f5;
+    background: transparent;
     color: var(--color-text);
 }
 
@@ -116,7 +121,7 @@ main {
 
 .tool-secondary {
     background: var(--color-secondary);
-    color: #fff;
+    color: #000;
 }
 
 .tool-accent {
@@ -126,7 +131,13 @@ main {
 
 .tool-icon {
     background: #fff;
-    border: 1px solid #e4e4e8;
+    border: none;
     color: var(--color-text);
-    padding: 10px 14px;
+    padding: 12px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 }
