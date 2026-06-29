@@ -1,16 +1,4 @@
-.dark {
-    color-scheme: dark;
-}
-
-:root {
-    --color-text: #0d0a2e;
-    --color-bg: #f6f4f4;
-    --color-primary: #4040f5;
-    --color-secondary: #ee0bd6;
-    --color-accent: #c4c5ee;
-}
-
-.dark {
+.dark {  
     color-scheme: dark;
 }
 
@@ -116,7 +104,14 @@ main {
     font-size: 3rem;
     font-weight: 700;
     cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
 }
+
+.tool:hover {
+    border: 2px solid #bebebe;
+}
+
 
 .tool-text {
     background: var(--color-text);

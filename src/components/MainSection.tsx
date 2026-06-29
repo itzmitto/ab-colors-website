@@ -23,6 +23,7 @@ function MainSection() {
     const [colors, setColors] = useState<Record<ColorKey, string>>(defaultColors);
     const [activePicker, setActivePicker] = useState<ColorKey | null>(null);
     const [isDark, setIsDark] = useState(false);
+    const [previousBg, setPreviousBg] = useState<string>(defaultColors.bg);
 
     useEffect(() => {
         const root = document.documentElement;
@@ -48,9 +49,12 @@ function MainSection() {
         if (newIsDark) {
             document.documentElement.classList.add("dark");
             localStorage.setItem("theme", "dark");
+            setPreviousBg(colors.bg);
+            setColors((prev) => ({ ...prev, bg: "#000000" }));
         } else {
             document.documentElement.classList.remove("dark");
             localStorage.setItem("theme", "light");
+            setColors((prev) => ({ ...prev, bg: previousBg }));
         }
     };
 
@@ -69,6 +73,24 @@ function MainSection() {
 
     const togglePicker = (key: ColorKey) => {
         setActivePicker((prev) => (prev === key ? null : key));
+    };
+
+    const randomHexColor = (): string => {
+        const hex = Math.floor(Math.random() * 0xffffff)
+            .toString(16)
+            .padStart(6, "0");
+        return `#${hex}`;
+    };
+
+    const randomizeColors = () => {
+        setColors((prev) => ({
+            ...prev,
+            text: randomHexColor(),
+            primary: randomHexColor(),
+            secondary: randomHexColor(),
+            accent: randomHexColor(),
+            // bg blijft ongewijzigd
+        }));
     };
 
     return (
@@ -201,7 +223,11 @@ function MainSection() {
                     >
                         <i className={isDark ? "fa-solid fa-moon" : "fa-solid fa-sun"}></i>
                     </button>
-                    <button className="tool tool-icon" aria-label="icon2">
+                    <button
+                        className="tool tool-icon"
+                        aria-label="icon2"
+                        onClick={randomizeColors}
+                    >
                         <i className="fa-solid fa-dice-five"></i>
                     </button>
                     <button className="tool tool-icon" aria-label="icon3">
