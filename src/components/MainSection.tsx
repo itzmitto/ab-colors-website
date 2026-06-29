@@ -26,13 +26,13 @@ function MainSection() {
                     <button className="tool tool-secondary">secondary</button>
                     <button className="tool tool-accent">Accent</button>
                     <button className="tool tool-icon" aria-label="icon1">
-                        icon1
+                        <i className="fa-solid fa-sun"></i>
                     </button>
                     <button className="tool tool-icon" aria-label="icon2">
-                        icon2
+                        <i className="fa-solid fa-dice-five"></i>
                     </button>
                     <button className="tool tool-icon" aria-label="icon3">
-                        icon3
+                        <i className="fa-solid fa-arrow-up-from-bracket"></i>
                     </button>
                 </div>
             </section>

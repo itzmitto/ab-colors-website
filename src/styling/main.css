@@ -99,7 +99,7 @@ main {
     border: none;
     border-radius: 10px;
     padding: 14px 22px;
-    font-size: 0.9rem;
+    font-size: 3rem;
     font-weight: 700;
     cursor: pointer;
 }
@@ -127,17 +127,4 @@ main {
 .tool-accent {
     background: var(--color-accent);
     color: var(--color-text);
-}
-
-.tool-icon {
-    background: #fff;
-    border: none;
-    color: var(--color-text);
-    padding: 12px;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
 }
