@@ -1,4 +1,13 @@
 function MainSection() {
+    const shakeToolbar = () => {
+        const toolbar = document.querySelector(".toolbar");
+        if (!toolbar) return;
+
+        toolbar.classList.remove("toolbar-shake");
+        void (toolbar as HTMLElement).offsetWidth;
+        toolbar.classList.add("toolbar-shake");
+    };
+
     return (
         <main>
             <section id="hero">
@@ -16,10 +25,12 @@ function MainSection() {
                     </p>
                     <div className="hero-buttons">
                         <button className="btn btn-secondary">How does it work?</button>
-                        <button className="btn btn-primary">Get Started</button>
+                        <button className="btn btn-primary" onClick={shakeToolbar}>
+                            Get Started
+                        </button>
                     </div>
                 </div>
-                
+
                 <div className="color-layout-wrapper">
                     <div className="color-layout">
                         <div className="block blok1"></div>

@@ -44,7 +44,7 @@ main {
 }
 
 .hero-left h1 {
-    font-size: 2.75rem;
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.15;
     margin: 0 0 16px;
@@ -150,4 +150,34 @@ main {
 
 .tool-icon:hover {
     transform: translateY(-2px);
+}
+
+.toolbar-shake {
+    animation: toolbarShake 0.4s ease;
+}
+
+@keyframes toolbarShake {
+    0% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-5px);
+    }
+
+    40% {
+        transform: translateY(2px);
+    }
+
+    60% {
+        transform: translateY(-3px);
+    }
+
+    80% {
+        transform: translateY(1px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
