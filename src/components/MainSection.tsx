@@ -23,7 +23,6 @@ function MainSection() {
     const [colors, setColors] = useState<Record<ColorKey, string>>(defaultColors);
     const [activePicker, setActivePicker] = useState<ColorKey | null>(null);
 
-    // Zodra een kleur in state verandert -> zet de bijbehorende CSS variabele op :root
     useEffect(() => {
         const root = document.documentElement;
         (Object.keys(colors) as ColorKey[]).forEach((key) => {
