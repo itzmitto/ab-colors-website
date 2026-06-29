@@ -43,3 +43,17 @@
         color: var(--color-secondary);
     }
 }
+
+
+
+@media (max-width: 900px) {
+    .howitworks-container {
+        grid-template-columns: 1fr;
+        padding: 48px 6%;
+        gap: 40px;
+    }
+
+    .howitworks-steps {
+        grid-template-columns: 1fr;
+    }
+}

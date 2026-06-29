@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";   
+import { useState, useEffect } from "react";
 import ColorPicker from "./ColorPicker";
 import ExportPopup from "./ExportPopup";
+import Main2 from "./Main2";
 
 type ColorKey = "text" | "bg" | "primary" | "secondary" | "accent";
 
@@ -69,6 +70,12 @@ function MainSection() {
         toolbar.classList.add("toolbar-shake");
     };
 
+    const scrollToMain2 = () => {
+        const main2 = document.getElementById("main2");
+        if (!main2) return;
+        main2.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
     const handleColorChange = (key: ColorKey, value: string) => {
         setColors((prev) => ({ ...prev, [key]: value }));
     };
@@ -95,162 +102,168 @@ function MainSection() {
     };
 
     return (
-        <main>
-            <section id="hero">
-                <div className="hero-left">
-                    <h1>
-                        Visualize Your<br />
-                        <span className="text-primary">Colors</span> &{' '}
-                        <span className="text-secondary">Fonts</span>
-                        <br />
-                        On a Real Site
-                    </h1>
-                    <p>
-                        Choosing colors or typography for your website? Use the Toolbar
-                        below to realize your choices.
-                    </p>
-                    <div className="hero-buttons">
-                        <button className="btn btn-secondary">How does it work?</button>
-                        <button className="btn btn-primary" onClick={shakeToolbar}>
-                            Get Started
-                        </button>
+        <>
+            <main>
+                <section id="hero">
+                    <div className="hero-left">
+                        <h1>
+                            Visualize Your<br />
+                            <span className="text-primary">Colors</span> &{' '}
+                            <span className="text-secondary">Fonts</span>
+                            <br />
+                            On a Real Site
+                        </h1>
+                        <p>
+                            Choosing colors or typography for your website? Use the Toolbar
+                            below to realize your choices.
+                        </p>
+                        <div className="hero-buttons">
+                            <button className="btn btn-secondary" onClick={scrollToMain2}>
+                                How does it work?
+                            </button>
+                            <button className="btn btn-primary" onClick={shakeToolbar}>
+                                Get Started
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <div className="color-layout-wrapper">
-                    <div className="color-layout">
-                        <div className="block blok1"></div>
-                        <div className="block blok2"></div>
-                        <div className="block blok3"></div>
-                        <div className="block blok4"></div>
-                        <div className="block blok5"></div>
-                        <div className="block blok6"></div>
-                        <div className="block blok7"></div>
-                        <div className="block blok8a"></div>
-                        <div className="block blok8b"></div>
-                        <div className="block blok9"></div>
-                        <div className="block blok10"></div>
-                        <div className="block blok11"></div>
+                    <div className="color-layout-wrapper">
+                        <div className="color-layout">
+                            <div className="block blok1"></div>
+                            <div className="block blok2"></div>
+                            <div className="block blok3"></div>
+                            <div className="block blok4"></div>
+                            <div className="block blok5"></div>
+                            <div className="block blok6"></div>
+                            <div className="block blok7"></div>
+                            <div className="block blok8a"></div>
+                            <div className="block blok8b"></div>
+                            <div className="block blok9"></div>
+                            <div className="block blok10"></div>
+                            <div className="block blok11"></div>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section id="toolbar">
-                <div className="toolbar">
-                    <div className="tool-wrapper">
+                <section id="toolbar">
+                    <div className="toolbar">
+                        <div className="tool-wrapper">
+                            <button
+                                className="tool tool-text"
+                                onClick={() => togglePicker("text")}
+                            >
+                                text
+                            </button>
+                            {activePicker === "text" && (
+                                <ColorPicker
+                                    color={colors.text}
+                                    onChange={(c) => handleColorChange("text", c)}
+                                    onClose={() => setActivePicker(null)}
+                                />
+                            )}
+                        </div>
+
+                        <div className="tool-wrapper">
+                            <button
+                                className="tool tool-background"
+                                onClick={() => togglePicker("bg")}
+                            >
+                                background
+                            </button>
+                            {activePicker === "bg" && (
+                                <ColorPicker
+                                    color={colors.bg}
+                                    onChange={(c) => handleColorChange("bg", c)}
+                                    onClose={() => setActivePicker(null)}
+                                />
+                            )}
+                        </div>
+
+                        <div className="tool-wrapper">
+                            <button
+                                className="tool tool-primary"
+                                onClick={() => togglePicker("primary")}
+                            >
+                                Primary
+                            </button>
+                            {activePicker === "primary" && (
+                                <ColorPicker
+                                    color={colors.primary}
+                                    onChange={(c) => handleColorChange("primary", c)}
+                                    onClose={() => setActivePicker(null)}
+                                />
+                            )}
+                        </div>
+
+                        <div className="tool-wrapper">
+                            <button
+                                className="tool tool-secondary"
+                                onClick={() => togglePicker("secondary")}
+                            >
+                                secondary
+                            </button>
+                            {activePicker === "secondary" && (
+                                <ColorPicker
+                                    color={colors.secondary}
+                                    onChange={(c) => handleColorChange("secondary", c)}
+                                    onClose={() => setActivePicker(null)}
+                                />
+                            )}
+                        </div>
+
+                        <div className="tool-wrapper">
+                            <button
+                                className="tool tool-accent"
+                                onClick={() => togglePicker("accent")}
+                            >
+                                Accent
+                            </button>
+                            {activePicker === "accent" && (
+                                <ColorPicker
+                                    color={colors.accent}
+                                    onChange={(c) => handleColorChange("accent", c)}
+                                    onClose={() => setActivePicker(null)}
+                                />
+                            )}
+                        </div>
+
                         <button
-                            className="tool tool-text"
-                            onClick={() => togglePicker("text")}
+                            className="tool tool-icon Tooltip"
+                            aria-label="Toggle dark mode"
+                            onClick={toggleTheme}
                         >
-                            text
+                            <i className={isDark ? "fa-solid fa-moon" : "fa-solid fa-sun"}></i>
+                            <span className="Tooltip__tip">Dark/Light</span>
                         </button>
-                        {activePicker === "text" && (
-                            <ColorPicker
-                                color={colors.text}
-                                onChange={(c) => handleColorChange("text", c)}
-                                onClose={() => setActivePicker(null)}
-                            />
-                        )}
-                    </div>
-
-                    <div className="tool-wrapper">
                         <button
-                            className="tool tool-background"
-                            onClick={() => togglePicker("bg")}
+                            className="tool tool-icon Tooltip"
+                            aria-label="icon2"
+                            onClick={randomizeColors}
                         >
-                            background
+                            <i className="fa-solid fa-dice-five"></i>
+                            <span className="Tooltip__tip">Randomize Colors</span>
                         </button>
-                        {activePicker === "bg" && (
-                            <ColorPicker
-                                color={colors.bg}
-                                onChange={(c) => handleColorChange("bg", c)}
-                                onClose={() => setActivePicker(null)}
-                            />
-                        )}
-                    </div>
-
-                    <div className="tool-wrapper">
                         <button
-                            className="tool tool-primary"
-                            onClick={() => togglePicker("primary")}
+                            className="tool tool-icon Tooltip"
+                            aria-label="icon3"
+                            onClick={() => setShowExportPopup(true)}
                         >
-                            Primary
+                            <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                            <span className="Tooltip__tip">Export</span>
                         </button>
-                        {activePicker === "primary" && (
-                            <ColorPicker
-                                color={colors.primary}
-                                onChange={(c) => handleColorChange("primary", c)}
-                                onClose={() => setActivePicker(null)}
-                            />
-                        )}
                     </div>
 
-                    <div className="tool-wrapper">
-                        <button
-                            className="tool tool-secondary"
-                            onClick={() => togglePicker("secondary")}
-                        >
-                            secondary
-                        </button>
-                        {activePicker === "secondary" && (
-                            <ColorPicker
-                                color={colors.secondary}
-                                onChange={(c) => handleColorChange("secondary", c)}
-                                onClose={() => setActivePicker(null)}
-                            />
-                        )}
-                    </div>
+                    {showExportPopup && (
+                        <ExportPopup
+                            colors={colors}
+                            onClose={() => setShowExportPopup(false)}
+                        />
+                    )}
+                </section>
+            </main>
 
-                    <div className="tool-wrapper">
-                        <button
-                            className="tool tool-accent"
-                            onClick={() => togglePicker("accent")}
-                        >
-                            Accent
-                        </button>
-                        {activePicker === "accent" && (
-                            <ColorPicker
-                                color={colors.accent}
-                                onChange={(c) => handleColorChange("accent", c)}
-                                onClose={() => setActivePicker(null)}
-                            />
-                        )}
-                    </div>
-
-                    <button
-                        className="tool tool-icon Tooltip"
-                        aria-label="Toggle dark mode"
-                        onClick={toggleTheme}
-                    >
-                        <i className={isDark ? "fa-solid fa-moon" : "fa-solid fa-sun"}></i>
-                        <span className="Tooltip__tip">Dark/Light</span>
-                    </button>
-                    <button
-                        className="tool tool-icon Tooltip"
-                        aria-label="icon2"
-                        onClick={randomizeColors}
-                    >
-                        <i className="fa-solid fa-dice-five"></i>
-                        <span className="Tooltip__tip">Randomize Colors</span>
-                    </button>
-                    <button
-                        className="tool tool-icon Tooltip"
-                        aria-label="icon3"
-                        onClick={() => setShowExportPopup(true)}
-                    >
-                        <i className="fa-solid fa-arrow-up-from-bracket"></i>
-                        <span className="Tooltip__tip">Export</span>
-                    </button>
-                </div>
-
-                {showExportPopup && (
-                    <ExportPopup
-                        colors={colors}
-                        onClose={() => setShowExportPopup(false)}
-                    />
-                )}
-            </section>
-        </main>
+            <Main2 />
+        </>
     );
 }
 
