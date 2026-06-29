@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';  
+import { useState, useEffect } from 'react';    
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
@@ -36,8 +36,9 @@ export default function Navbar() {
                 <div className="nav-links">
                     <Link to="/" className="nav-link">generate</Link>
                     <Link to="/tailwind-colors" className="nav-link">Tailwind Colors</Link>
-                    <Link to="/websites" className="nav-link">websites</Link>
                     <Link to="/examples" className="nav-link">examples</Link>
+                    <Link to="/websites" className="nav-link">websites</Link>
+
                 </div>
                 <div className="nav-right">
                     <button

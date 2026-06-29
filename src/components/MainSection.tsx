@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";   
 import ColorPicker from "./ColorPicker";
 import ExportPopup from "./ExportPopup";
 import Main2 from "./Main2";
@@ -150,48 +150,42 @@ function MainSection() {
                         <div className="tool-wrapper">
                             <button
                                 className="tool tool-text"
-                                onClick={() => togglePicker("text")}
-                            >
+                                onClick={() => togglePicker("text")}>
                                 text
                             </button>
                             {activePicker === "text" && (
                                 <ColorPicker
                                     color={colors.text}
                                     onChange={(c) => handleColorChange("text", c)}
-                                    onClose={() => setActivePicker(null)}
-                                />
+                                    onClose={() => setActivePicker(null)} />
                             )}
                         </div>
 
                         <div className="tool-wrapper">
                             <button
                                 className="tool tool-background"
-                                onClick={() => togglePicker("bg")}
-                            >
+                                onClick={() => togglePicker("bg")}>
                                 background
                             </button>
                             {activePicker === "bg" && (
                                 <ColorPicker
                                     color={colors.bg}
                                     onChange={(c) => handleColorChange("bg", c)}
-                                    onClose={() => setActivePicker(null)}
-                                />
+                                    onClose={() => setActivePicker(null)} />
                             )}
                         </div>
 
                         <div className="tool-wrapper">
                             <button
                                 className="tool tool-primary"
-                                onClick={() => togglePicker("primary")}
-                            >
+                                onClick={() => togglePicker("primary")}>
                                 Primary
                             </button>
                             {activePicker === "primary" && (
                                 <ColorPicker
                                     color={colors.primary}
                                     onChange={(c) => handleColorChange("primary", c)}
-                                    onClose={() => setActivePicker(null)}
-                                />
+                                    onClose={() => setActivePicker(null)} />
                             )}
                         </div>
 
@@ -206,48 +200,42 @@ function MainSection() {
                                 <ColorPicker
                                     color={colors.secondary}
                                     onChange={(c) => handleColorChange("secondary", c)}
-                                    onClose={() => setActivePicker(null)}
-                                />
+                                    onClose={() => setActivePicker(null)} />
                             )}
                         </div>
 
                         <div className="tool-wrapper">
                             <button
                                 className="tool tool-accent"
-                                onClick={() => togglePicker("accent")}
-                            >
+                                onClick={() => togglePicker("accent")}>
                                 Accent
                             </button>
                             {activePicker === "accent" && (
                                 <ColorPicker
                                     color={colors.accent}
                                     onChange={(c) => handleColorChange("accent", c)}
-                                    onClose={() => setActivePicker(null)}
-                                />
+                                    onClose={() => setActivePicker(null)} />
                             )}
                         </div>
 
                         <button
                             className="tool tool-icon Tooltip"
                             aria-label="Toggle dark mode"
-                            onClick={toggleTheme}
-                        >
+                            onClick={toggleTheme}>
                             <i className={isDark ? "fa-solid fa-moon" : "fa-solid fa-sun"}></i>
                             <span className="Tooltip__tip">Dark/Light</span>
                         </button>
                         <button
                             className="tool tool-icon Tooltip"
                             aria-label="icon2"
-                            onClick={randomizeColors}
-                        >
+                            onClick={randomizeColors}>
                             <i className="fa-solid fa-dice-five"></i>
                             <span className="Tooltip__tip">Randomize Colors</span>
                         </button>
                         <button
                             className="tool tool-icon Tooltip"
                             aria-label="icon3"
-                            onClick={() => setShowExportPopup(true)}
-                        >
+                            onClick={() => setShowExportPopup(true)}>
                             <i className="fa-solid fa-arrow-up-from-bracket"></i>
                             <span className="Tooltip__tip">Export</span>
                         </button>
@@ -256,8 +244,7 @@ function MainSection() {
                     {showExportPopup && (
                         <ExportPopup
                             colors={colors}
-                            onClose={() => setShowExportPopup(false)}
-                        />
+                            onClose={() => setShowExportPopup(false)} />
                     )}
                 </section>
             </main>

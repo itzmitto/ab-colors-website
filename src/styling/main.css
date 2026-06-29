@@ -1,4 +1,4 @@
-.dark {
+.dark {  
     color-scheme: dark;
 }
 
@@ -376,7 +376,6 @@ main {
     transform: translateX(-50%) scale(1);
 }
 
-/* ===== Main2 / How Does it Work ===== */
 
 .howitworks-container {
     width: 100%;

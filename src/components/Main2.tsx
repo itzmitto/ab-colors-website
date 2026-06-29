@@ -1,4 +1,4 @@
-const steps = [
+const steps = [  
     {
         number: 1,
         text: "Start with two neutral colors for the text and the background.",
@@ -13,7 +13,7 @@ const steps = [
     },
     {
         number: 4,
-        text: 'Happy with the results? Press on "Export" and choose among different options to export in various formats, like .zip, .png, CSS, SCSS, QR Code, and more.',
+        text: 'Happy with the results? Press on "Export" and choose get your root: {colors}',
     },
 ];
 

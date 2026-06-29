@@ -77,8 +77,7 @@ function TailwindColors() {
                                     className="tw-swatch"
                                     style={{ backgroundColor: hex }}
                                     onClick={() => handleCopy(hex)}
-                                    aria-label={`Copy ${hex}`}
-                                >
+                                    aria-label={`Copy ${hex}`}>
                                     <span className="tw-tooltip">{hex}</span>
                                 </button>
                             ))}
