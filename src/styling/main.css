@@ -110,7 +110,7 @@ main {
 }
 
 .tool-background {
-    background: transparent;
+    background: #ffffff;
     color: var(--color-text);
 }
 
@@ -127,4 +127,14 @@ main {
 .tool-accent {
     background: var(--color-accent);
     color: var(--color-text);
+}
+
+.tool-icon {
+    background: #ffffff;
+    color: var(--color-text);
+    transition: all 0.2s ease;
+}
+
+.tool-icon:hover {
+    transform: translateY(-2px);
 }
