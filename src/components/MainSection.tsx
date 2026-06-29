@@ -1,4 +1,36 @@
+import { useState, useEffect } from "react";
+import ColorPicker from "./ColorPicker";
+
+type ColorKey = "text" | "bg" | "primary" | "secondary" | "accent";
+
+const cssVarMap: Record<ColorKey, string> = {
+    text: "--color-text",
+    bg: "--color-bg",
+    primary: "--color-primary",
+    secondary: "--color-secondary",
+    accent: "--color-accent",
+};
+
+const defaultColors: Record<ColorKey, string> = {
+    text: "#0d0a2e",
+    bg: "#f6f4f4",
+    primary: "#4040f5",
+    secondary: "#ee0bd6",
+    accent: "#c4c5ee",
+};
+
 function MainSection() {
+    const [colors, setColors] = useState<Record<ColorKey, string>>(defaultColors);
+    const [activePicker, setActivePicker] = useState<ColorKey | null>(null);
+
+    // Zodra een kleur in state verandert -> zet de bijbehorende CSS variabele op :root
+    useEffect(() => {
+        const root = document.documentElement;
+        (Object.keys(colors) as ColorKey[]).forEach((key) => {
+            root.style.setProperty(cssVarMap[key], colors[key]);
+        });
+    }, [colors]);
+
     const shakeToolbar = () => {
         const toolbar = document.querySelector(".toolbar");
         if (!toolbar) return;
@@ -6,6 +38,14 @@ function MainSection() {
         toolbar.classList.remove("toolbar-shake");
         void (toolbar as HTMLElement).offsetWidth;
         toolbar.classList.add("toolbar-shake");
+    };
+
+    const handleColorChange = (key: ColorKey, value: string) => {
+        setColors((prev) => ({ ...prev, [key]: value }));
+    };
+
+    const togglePicker = (key: ColorKey) => {
+        setActivePicker((prev) => (prev === key ? null : key));
     };
 
     return (
@@ -51,11 +91,86 @@ function MainSection() {
 
             <section id="toolbar">
                 <div className="toolbar">
-                    <button className="tool tool-text">text</button>
-                    <button className="tool tool-background">background</button>
-                    <button className="tool tool-primary">Primary</button>
-                    <button className="tool tool-secondary">secondary</button>
-                    <button className="tool tool-accent">Accent</button>
+                    <div className="tool-wrapper">
+                        <button
+                            className="tool tool-text"
+                            onClick={() => togglePicker("text")}
+                        >
+                            text
+                        </button>
+                        {activePicker === "text" && (
+                            <ColorPicker
+                                color={colors.text}
+                                onChange={(c) => handleColorChange("text", c)}
+                                onClose={() => setActivePicker(null)}
+                            />
+                        )}
+                    </div>
+
+                    <div className="tool-wrapper">
+                        <button
+                            className="tool tool-background"
+                            onClick={() => togglePicker("bg")}
+                        >
+                            background
+                        </button>
+                        {activePicker === "bg" && (
+                            <ColorPicker
+                                color={colors.bg}
+                                onChange={(c) => handleColorChange("bg", c)}
+                                onClose={() => setActivePicker(null)}
+                            />
+                        )}
+                    </div>
+
+                    <div className="tool-wrapper">
+                        <button
+                            className="tool tool-primary"
+                            onClick={() => togglePicker("primary")}
+                        >
+                            Primary
+                        </button>
+                        {activePicker === "primary" && (
+                            <ColorPicker
+                                color={colors.primary}
+                                onChange={(c) => handleColorChange("primary", c)}
+                                onClose={() => setActivePicker(null)}
+                            />
+                        )}
+                    </div>
+
+                    <div className="tool-wrapper">
+                        <button
+                            className="tool tool-secondary"
+                            onClick={() => togglePicker("secondary")}
+                        >
+                            secondary
+                        </button>
+                        {activePicker === "secondary" && (
+                            <ColorPicker
+                                color={colors.secondary}
+                                onChange={(c) => handleColorChange("secondary", c)}
+                                onClose={() => setActivePicker(null)}
+                            />
+                        )}
+                    </div>
+
+                    <div className="tool-wrapper">
+                        <button
+                            className="tool tool-accent"
+                            onClick={() => togglePicker("accent")}
+                        >
+                            Accent
+                        </button>
+                        {activePicker === "accent" && (
+                            <ColorPicker
+                                color={colors.accent}
+                                onChange={(c) => handleColorChange("accent", c)}
+                                onClose={() => setActivePicker(null)}
+                            />
+                        )}
+                    </div>
+
                     <button className="tool tool-icon" aria-label="icon1">
                         <i className="fa-solid fa-sun"></i>
                     </button>
