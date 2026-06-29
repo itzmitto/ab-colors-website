@@ -125,12 +125,12 @@ main {
 
 .tool-primary {
     background: var(--color-primary);
-    color: #fff;
+    color: var(--color-text);
 }
 
 .tool-secondary {
     background: var(--color-secondary);
-    color: #000;
+    color: var(--color-text);
 }
 
 .tool-accent {
@@ -335,4 +335,43 @@ main {
 
 .export-copy-btn:hover {
     background: #f0f0f0;
+}
+
+.Tooltip {
+    position: relative;
+}
+
+.Tooltip__tip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.85);
+    background: #1e1e24;
+    color: #e4e4e7;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 60;
+}
+
+.Tooltip__tip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #1e1e24;
+}
+
+.Tooltip:hover .Tooltip__tip {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
 }

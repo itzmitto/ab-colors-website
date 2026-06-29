@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";   
 import ColorPicker from "./ColorPicker";
 import ExportPopup from "./ExportPopup";
 
@@ -218,25 +218,28 @@ function MainSection() {
                     </div>
 
                     <button
-                        className="tool tool-icon"
+                        className="tool tool-icon Tooltip"
                         aria-label="Toggle dark mode"
                         onClick={toggleTheme}
                     >
                         <i className={isDark ? "fa-solid fa-moon" : "fa-solid fa-sun"}></i>
+                        <span className="Tooltip__tip">Dark/Light</span>
                     </button>
                     <button
-                        className="tool tool-icon"
+                        className="tool tool-icon Tooltip"
                         aria-label="icon2"
                         onClick={randomizeColors}
                     >
                         <i className="fa-solid fa-dice-five"></i>
+                        <span className="Tooltip__tip">Randomize Colors</span>
                     </button>
                     <button
-                        className="tool tool-icon"
+                        className="tool tool-icon Tooltip"
                         aria-label="icon3"
                         onClick={() => setShowExportPopup(true)}
                     >
                         <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                        <span className="Tooltip__tip">Export</span>
                     </button>
                 </div>
 
