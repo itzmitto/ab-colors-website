@@ -1,4 +1,4 @@
-.dark {  
+.dark {
     color-scheme: dark;
 }
 
@@ -242,4 +242,97 @@ main {
     margin-top: 12px;
     height: 36px;
     border-radius: 10px;
+}
+
+.export-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.export-popup {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    width: 90%;
+    max-width: 560px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.export-tabs {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.export-tab {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+
+.export-tab-active {
+    border-bottom: 3px solid var(--color-text);
+}
+
+.export-format-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.export-format-btn {
+    border: none;
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #eceef1;
+    color: var(--color-text);
+}
+
+.export-format-btn-active {
+    background: var(--color-text);
+    color: #fff;
+}
+
+.export-code-wrapper {
+    position: relative;
+    background: #f4f4f5;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.export-code {
+    margin: 0;
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.export-copy-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.export-copy-btn:hover {
+    background: #f0f0f0;
 }

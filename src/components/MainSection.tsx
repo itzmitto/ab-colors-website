@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ColorPicker from "./ColorPicker";
+import ExportPopup from "./ExportPopup";
 
 type ColorKey = "text" | "bg" | "primary" | "secondary" | "accent";
 
@@ -24,6 +25,7 @@ function MainSection() {
     const [activePicker, setActivePicker] = useState<ColorKey | null>(null);
     const [isDark, setIsDark] = useState(false);
     const [previousBg, setPreviousBg] = useState<string>(defaultColors.bg);
+    const [showExportPopup, setShowExportPopup] = useState(false);
 
     useEffect(() => {
         const root = document.documentElement;
@@ -89,7 +91,6 @@ function MainSection() {
             primary: randomHexColor(),
             secondary: randomHexColor(),
             accent: randomHexColor(),
-            // bg blijft ongewijzigd
         }));
     };
 
@@ -230,10 +231,21 @@ function MainSection() {
                     >
                         <i className="fa-solid fa-dice-five"></i>
                     </button>
-                    <button className="tool tool-icon" aria-label="icon3">
+                    <button
+                        className="tool tool-icon"
+                        aria-label="icon3"
+                        onClick={() => setShowExportPopup(true)}
+                    >
                         <i className="fa-solid fa-arrow-up-from-bracket"></i>
                     </button>
                 </div>
+
+                {showExportPopup && (
+                    <ExportPopup
+                        colors={colors}
+                        onClose={() => setShowExportPopup(false)}
+                    />
+                )}
             </section>
         </main>
     );
