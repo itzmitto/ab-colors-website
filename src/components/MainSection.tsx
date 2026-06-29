@@ -22,6 +22,7 @@ const defaultColors: Record<ColorKey, string> = {
 function MainSection() {
     const [colors, setColors] = useState<Record<ColorKey, string>>(defaultColors);
     const [activePicker, setActivePicker] = useState<ColorKey | null>(null);
+    const [isDark, setIsDark] = useState(false);
 
     useEffect(() => {
         const root = document.documentElement;
@@ -29,6 +30,29 @@ function MainSection() {
             root.style.setProperty(cssVarMap[key], colors[key]);
         });
     }, [colors]);
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+            setIsDark(true);
+            document.documentElement.classList.add("dark");
+        }
+    }, []);
+
+    const toggleTheme = () => {
+        const newIsDark = !isDark;
+        setIsDark(newIsDark);
+
+        if (newIsDark) {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        }
+    };
 
     const shakeToolbar = () => {
         const toolbar = document.querySelector(".toolbar");
@@ -170,8 +194,12 @@ function MainSection() {
                         )}
                     </div>
 
-                    <button className="tool tool-icon" aria-label="icon1">
-                        <i className="fa-solid fa-sun"></i>
+                    <button
+                        className="tool tool-icon"
+                        aria-label="Toggle dark mode"
+                        onClick={toggleTheme}
+                    >
+                        <i className={isDark ? "fa-solid fa-moon" : "fa-solid fa-sun"}></i>
                     </button>
                     <button className="tool tool-icon" aria-label="icon2">
                         <i className="fa-solid fa-dice-five"></i>

@@ -1,4 +1,4 @@
-.color-layout-wrapper {
+.color-layout-wrapper {   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,7 @@
     top: 58px;
 }
 
-.color-layout .blok5 {
+.color-layout .blok5 { 
     background: var(--color-text);
     width: 140px;
     height: 190px;
