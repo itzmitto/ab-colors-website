@@ -1,4 +1,4 @@
-.dark {
+.dark { 
     color-scheme: dark;
 }
 
@@ -62,7 +62,7 @@ main {
 
 .btn {
     border: none;
-    border-radius: 24px;
+    border-radius: 12px;
     padding: 12px 22px;
     font-weight: 700;
     font-size: 0.9rem;

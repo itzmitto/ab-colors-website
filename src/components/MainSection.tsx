@@ -1,4 +1,4 @@
-function MainSection() {
+function MainSection() { 
     return (
         <main>
             <section id="hero">
@@ -14,6 +14,23 @@ function MainSection() {
                     <div className="hero-buttons">
                         <button className="btn btn-secondary">How does it work?</button>
                         <button className="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+
+                <div className="color-layout-wrapper">
+                    <div className="color-layout">
+                        <div className="block blok1"></div>
+                        <div className="block blok2"></div>
+                        <div className="block blok3"></div>
+                        <div className="block blok4"></div>
+                        <div className="block blok5"></div>
+                        <div className="block blok6"></div>
+                        <div className="block blok7"></div>
+                        <div className="block blok8a"></div>
+                        <div className="block blok8b"></div>
+                        <div className="block blok9"></div>
+                        <div className="block blok10"></div>
+                        <div className="block blok11"></div>
                     </div>
                 </div>
             </section>

@@ -1,0 +1,112 @@
+.color-layout-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-layout {
+    position: relative;
+    width: 535px;
+    height: 560px;
+}
+
+.color-layout .block {
+    position: absolute;
+    border-radius: 12px;
+}
+
+.color-layout .blok1 {
+    background: var(--color-accent);
+    width: 190px;
+    height: 48px;
+    left: 0;
+    top: 0;
+}
+
+.color-layout .blok2 {
+    background: var(--color-primary);
+    width: 280px;
+    height: 270px;
+    left: 65px;
+    top: 55px;
+}
+
+.color-layout .blok3 {
+    background: var(--color-secondary);
+    width: 280px;
+    height: 50px;
+    right: 0;
+    top: 0;
+}
+
+.color-layout .blok4 {
+    background: var(--color-secondary);
+    width: 183px;
+    height: 170px;
+    right: 0;
+    top: 58px;
+}
+
+.color-layout .blok5 {
+    background: var(--color-text);
+    width: 140px;
+    height: 190px;
+    left: 65px;
+    top: 335px;
+}
+
+.color-layout .blok6 {
+    background: var(--color-accent);
+    width: 130px;
+    height: 90px;
+    left: 215px;
+    top: 335px;
+}
+
+.color-layout .blok7 {
+    background: var(--color-accent);
+    width: 183px;
+    height: 90px;
+    right: 0;
+    top: 335px;
+}
+
+.color-layout .blok8a {
+    background: var(--color-accent);
+    width: 58px;
+    height: 240px;
+    left: 0;
+    bottom: 210px;
+}
+
+.color-layout .blok8b {
+    background: var(--color-primary);
+    width: 58px;
+    height: 200px;
+    left: 0;
+    bottom: 0;
+}
+
+.color-layout .blok9 {
+    background: var(--color-secondary);
+    width: 130px;
+    height: 90px;
+    left: 215px;
+    bottom: 35px;
+}
+
+.color-layout .blok10 {
+    background: var(--color-primary);
+    width: 183px;
+    height: 125px;
+    right: 0;
+    bottom: 0;
+}
+
+.color-layout .blok11 {
+    background: var(--color-text);
+    width: 130px;
+    height: 30px;
+    left: 215px;
+    bottom: 0;
+}
