@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";  
 import ColorPicker from "./ColorPicker";
 import ExportPopup from "./ExportPopup";
 import Main2 from "./Main2";
+    
+
 
 // Dit zijn de 5 kleuren die je kan aanpassen op de website
 type ColorKey = "text" | "bg" | "primary" | "secondary" | "accent";

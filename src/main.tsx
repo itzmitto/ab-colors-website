@@ -5,6 +5,8 @@ import App from './App';
 import TailwindColors from './pages/TailwindColors';
 import Websites from './pages/Websites';
 import Examples from './pages/Examples';
+import './styling/media.css'   
+
 
 
 

@@ -1,9 +1,21 @@
+// Importeer de benodigde hooks van React
+// useRef = onthoudt een waarde zonder de pagina opnieuw te tekenen
+// useState = sla een waarde op en herlaad de pagina als die verandert
 import { useRef, useState } from 'react';
+
+// Importeer de Navbar-component die bovenaan de pagina verschijnt
 import Navbar from '../components/Navbar';
+
+// Importeer de CSS-stijlen speciaal voor deze pagina
 import '../styling/tailwindColors.css';
 
+// Dit is de lijst van alle kleurgewichten (van licht naar donker)
+// 50 = heel licht, 950 = heel donker
 const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
+// Dit object bevat alle Tailwind-kleuren
+// Elke kleur heeft een naam (bijv. 'Red') en een lijst van 11 hex-codes
+// Een hex-code is een kleurcode die begint met # (bijv. #ef4444)
 const colors: Record<string, string[]> = {
     Red: ['#fef2f2', '#fee2e2', '#fecaca', '#fca5a5', '#f87171', '#ef4444', '#dc2626', '#b91c1c', '#991b1b', '#7f1d1d', '#450a0a'],
     Orange: ['#fff7ed', '#ffedd5', '#fed7aa', '#fdba74', '#fb923c', '#f97316', '#ea580c', '#c2410c', '#9a3412', '#7c2d12', '#431407'],
@@ -29,18 +41,32 @@ const colors: Record<string, string[]> = {
     Stone: ['#fafaf9', '#f5f5f4', '#e7e5e4', '#d6d3d1', '#a8a29e', '#78716c', '#57534e', '#44403c', '#292524', '#1c1917', '#0c0a09'],
 };
 
+// Dit is de hoofd-component van de pagina
 function TailwindColors() {
+
+    // 'toast' slaat op welke hex-code gekopieerd is én of het berichtje zichtbaar is
+    // Voorbeeld: { hex: '#ef4444', show: true }
     const [toast, setToast] = useState<{ hex: string; show: boolean }>({
         hex: '',
         show: false,
     });
+
+    // useRef wordt hier gebruikt om de timer bij te houden
+    // Zo kunnen we de vorige timer stoppen als er snel achter elkaar geklikt wordt
     const toastTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+    // Deze functie wordt aangeroepen als de gebruiker op een kleur klikt
     const handleCopy = (hex: string) => {
+        // Kopieer de hex-code naar het klembord van de gebruiker
         navigator.clipboard.writeText(hex);
+
+        // Laat het 'gekopieerd'-berichtje zien met de hex-code
         setToast({ hex, show: true });
 
+        // Stop de vorige timer als die nog loopt (bij snel klikken)
         if (toastTimeout.current) clearTimeout(toastTimeout.current);
+
+        // Verberg het berichtje na 1,5 seconde automatisch
         toastTimeout.current = setTimeout(() => {
             setToast((prev) => ({ ...prev, show: false }));
         }, 1500);
@@ -48,36 +74,50 @@ function TailwindColors() {
 
     return (
         <>
+            {/* Toon de navigatiebalk bovenaan */}
             <Navbar />
 
             <div className="tw-colors-page">
+
+                {/* Het pop-up berichtje dat verschijnt na het kopiëren */}
+                {/* De 'show' klasse maakt het zichtbaar via CSS */}
                 <div className={`tw-copy-toast ${toast.show ? 'show' : ''}`}>
                     {toast.hex} copied!
                 </div>
 
+                {/* De koptekst van de pagina met een korte uitleg */}
                 <header className="tw-header">
                     <h1>Tailwind Colors</h1>
                     <p>Explore all Tailwind CSS v4 colors. Hover to see the hex code, click to copy.</p>
                 </header>
 
                 <div className="tw-grid-wrapper">
+
+                    {/* Bovenste rij met de schaalnummers (50, 100, 200, ...) */}
                     <div className="tw-shade-labels">
-                        <span />
+                        <span /> {/* Lege ruimte voor de kleurlabels aan de linkerkant */}
                         {shades.map((shade) => (
                             <span key={shade}>{shade}</span>
                         ))}
                     </div>
 
+                    {/* Loop door alle kleuren en maak een rij per kleur */}
                     {Object.entries(colors).map(([name, hexValues]) => (
                         <div className="tw-color-row" key={name}>
+
+                            {/* Naam van de kleur aan de linkerkant (bijv. 'Red') */}
                             <div className="tw-row-label">{name}</div>
+
+                            {/* Loop door alle 11 tinten en maak een klikbaar kleurvlak */}
                             {hexValues.map((hex) => (
                                 <button
                                     key={hex}
                                     className="tw-swatch"
-                                    style={{ backgroundColor: hex }}
-                                    onClick={() => handleCopy(hex)}
-                                    aria-label={`Copy ${hex}`}>
+                                    style={{ backgroundColor: hex }} // Zet de achtergrondkleur via inline stijl
+                                    onClick={() => handleCopy(hex)}  // Kopieer de hex-code bij klikken
+                                    aria-label={`Copy ${hex}`}>     {/* Toegankelijkheidslabel voor screenreaders */}
+
+                                    {/* Tooltip die de hex-code toont bij hoveren */}
                                     <span className="tw-tooltip">{hex}</span>
                                 </button>
                             ))}
@@ -89,4 +129,5 @@ function TailwindColors() {
     );
 }
 
+// Exporteer de component zodat andere bestanden hem kunnen importeren
 export default TailwindColors;
