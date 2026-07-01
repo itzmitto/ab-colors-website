@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar';
+import '../styling/examples.css';
 
 export default function Examples() {
     return (
